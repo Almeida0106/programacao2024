@@ -108,11 +108,13 @@ else
 //atual. O programa deve imprimir a idade da pessoa. Não se esqueça de verificar se o
 //ano de nascimento informado é válido.
 void questao09() {
- int anon; anoa;
+ int anon, ano, data;
 printf ("Informe seu ano de nascimento e o ano atual (apenas numeros): \n");
-scanf ("%d %d", &anon, &anoa);
-if (anon < anoa)
- printf ("A idade é: \n " anoa-anon);
+scanf ("%d %d", &anon, &ano);
+if (anon < ano) {
+ data = ano - anon; 
+ printf ("A idade é: \n %d", data);
+}
 else
  printf ("Ano inválido!!");
 }
@@ -120,7 +122,21 @@ else
 //10. Faça um programa que leia três números inteiros e imprima os três em ordem
 //crescente.
 void questao10() {
-
+int num1, num2, num3;
+printf ("Informe tres valores inteiros:");
+scanf ("%d %d %d", &num1, &num2, &num3);
+if (num1 <= num2 && num2 <= num3)
+  printf ("%d %d %d \n", num1, num2, num3);
+else if  (num2 <= num1 && num1 <= num3)
+  printf ("%d %d %d \n", num2, num1, num3);
+else if (num3 <= num1 && num1 <= num2)
+  printf ("%d %d %d \n", num3, num1, num2);
+else if (num3 <= num2 && num2 <= num1)
+  printf ("%d %d %d \n",num3, num2, num1);
+else if (num2 <= num3 && num3 <= num1)
+ printf ("%d %d %d \n", num2, num3, num1);
+else if (num1 <= num3 && num3 <= num2)
+ printf ("%d %d %d \n", num1, num3, num2);
 }
 
 //11. Faça um programa que leia 3 números e imprima o maior deles.
@@ -274,9 +290,12 @@ int main() {
 		case 8:
 			questao08();
 			break;							
+		case 9:
+			questao09();
+			break;	
 		case 10:
 			questao10();
-			break;
+			break;	
 		default:
 			printf("Opção inválida!");
 	}
