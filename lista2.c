@@ -141,7 +141,15 @@ else if (num1 <= num3 && num3 <= num2)
 
 //11. Faça um programa que leia 3 números e imprima o maior deles.
 void questao11() {
-	
+ int num1, num2, num3;
+ printf ("Informe tres valores:");
+ scanf ("%d %d %d", &num1, &num2, &num3);
+ if (num1 > num2 && num1 > num3)
+  printf ("%d", num1);
+else if (num2 > num1 && num2 > num3)
+ printf ("%d", num2);
+else if (num3 > num1 && num3 > num2)
+ printf ("%d \n", num3);	
 }
 
 //12. Faça um programa que leia a idade de uma pessoa e informe:
@@ -149,13 +157,34 @@ void questao11() {
 //• Se é menor de idade
 //• Se é maior de 65 anos
 void questao12() {
-	
+ int idade;
+ printf ("Informe sua idade:");
+ scanf ("%d", &idade);
+ if (idade >= 65)
+  printf ("O senhor é Alessandro!! \n");
+else if (idade >= 18 &&  idade < 65)
+ printf ("Maior de idade!! \n");
+else  
+ printf ("Menor de idade!! \n");
 }
 
 //13. Faça um programa que permita entrar com o nome, a nota da prova 1 e a nota da
 //prova 2 de umaluno. O programa deve imprimir o nome, a nota da prova 1, a nota da prova 2, a média das notas e uma das mensagens: "Aprovado", "Reprovado"ou "em Prova Final"(a média é 7 para aprovação, menor que 3 para reprovação e as demais em prova final).
 void questao13() {
-	
+ float n1, n2, md;
+ char nome [99]; 
+ printf ("Informe seu primeiro nome: \n " );
+ scanf (" %99[^\n]", nome);
+ printf ("Informe suas duas notas: \n");
+ scanf ("%f %f", &n1, &n2);
+ md = (n1+n2)/2;
+ printf ("Aluno: %s \n", nome);
+ if (md >= 7)
+ printf ("Aprovado!!");
+else if (md < 7 && md >= 4)
+ printf ("Recuperação!!");
+else 
+ printf ("Reprovado!!");
 }
 
 //14. Faça um programa que permita entrar com o salário de uma pessoa e imprima o
@@ -166,13 +195,40 @@ void questao13() {
 //Maior que R$1200,00 e menor ou igual a R$2000,00 25%
 //Maior que R$2000,00 30%
 void questao14() {
-	
-}
+  float salario, novo;
+  printf ("Informe seu salario:");
+  scanf ("%f", &salario);
+  if (salario <= 600)
+   printf ("Insento de desconto!!");
+ else if (salario > 600 && salario <= 1200){
+	novo = salario * 0.20;
+	printf ("Total de desconto INSS: %.2f \n", novo);
+  }
+ else if (salario > 1200 && salario <= 2000){
+	novo = salario * 0.25;
+	printf ("Total de desconto INSS %.2f \n", novo);
+ }
+ else {
+  novo = salario * 0.30;
+  printf ("Total de desconto INSS: %.2f \n", novo); 	
+ }
+}	 
 
 //15. Um comerciante comprou umproduto e quer vendê-lo com umlucro de 45% se o valor
 //da compra for menor que R$20,00, caso contrário, o lucro será de 30%. Faça um programa que leia o valor do produto e imprima o valor da venda.
+
 void questao15() {
-	
+ float valor, novo;
+ printf ("Informe o valor da compra: \n");
+ scanf ("%f", &valor);
+ if (valor < 20){
+ novo = valor + (valor * 0.45);
+ printf	("Valor total da venda: %.2f \n", novo);
+ } 
+ else {
+ novo = valor + (valor * 0.30);
+ printf ("Valor total da venda: %.2f \n", novo);
+ }  
 }
 
 //16. A confederação brasileira de natação irá promover eliminatórias para o próximo
@@ -184,7 +240,19 @@ void questao15() {
 //Juvenil B 14 - 17 anos
 //Sênior maiores de 18 anos
 void questao16() {
-	
+ int idade;
+ printf ("Informe sua idade: \n");
+ scanf ("%d", &idade);
+ if (idade >= 5 && idade <= 7)
+ printf ("Infantil A");
+else if (idade > 7 && idade <= 10)
+ printf ("Infantil B");	
+else if (idade > 10 && idade <= 13)
+ printf ("Juvenil A");	
+else if (idade > 13 && idade <= 17)
+ printf ("Juvenil B");
+else
+ printf ("Senior");		
 }
 
 //17. Depois da liberação do governo para as mensalidades dos planos de saúde, as pessoas começaram a fazer pesquisas para descobrir um bom plano, não muito caro. Umvendedor de um plano de saúde apresentou a tabela a seguir. Faça um programa que entre com o nome e a idade de uma pessoa e imprima o nome e o valor que ela deverá pagar.
@@ -196,7 +264,25 @@ void questao16() {
 //Acima de 59 até 65 anos R$250,00
 //Maior que 65 anos R$400,00
 void questao17() {
-	
+ int idade;
+ char nome [99]	;
+ printf ("Informe seu primeiro nome: \n " );
+ scanf (" %99[^\n]", nome);
+ printf ("Informe sua idade: \n");
+ scanf ("%d", &idade);
+ printf ("%s \n", nome);
+ if (idade <= 10) 
+  printf ("R$30,00");
+else if (idade > 10 && idade <= 29)
+ printf ("R$60,00");
+else if (idade > 29 && idade <= 45)
+ printf ("R$120");
+else if (idade > 45 && idade <=59)
+ printf ("R$150,00");
+else if (idade > 59 && idade <=65)
+ printf ("R$250,00");
+else 
+ printf ("R$400,00 \n");
 }
 
 //18. Faça um programa que leia um número inteiro entre 1 e 12 e escreva o mês correspondente. Caso o usuário digite umnúmero fora desse intervalo, deverá aparecer uma mensagem informando que não existe mês com este número. Utilize o switch para este problema.
@@ -296,6 +382,27 @@ int main() {
 		case 10:
 			questao10();
 			break;	
+		case 11:
+			questao11();
+			break;
+		case 12:
+			questao12();
+			break;	
+		case 13:
+			questao13();
+			break;	
+		case 14:
+			questao14();
+			break;
+		case 15:
+			questao15();
+			break;		
+		case 16:
+			questao16();
+			break;		
+		case 17:
+			questao17();
+			break;						
 		default:
 			printf("Opção inválida!");
 	}
