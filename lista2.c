@@ -287,15 +287,98 @@ else
 
 //18. Faça um programa que leia um número inteiro entre 1 e 12 e escreva o mês correspondente. Caso o usuário digite umnúmero fora desse intervalo, deverá aparecer uma mensagem informando que não existe mês com este número. Utilize o switch para este problema.
 void questao18() {
-	
+ int num;
+
+printf ("Digite um valor entre 1 e 12 \n");
+scanf ("%d", &num);
+
+switch (num){
+
+case 1:
+printf ("\n janeiro \n");
+break;	
+
+case 2:
+printf ("\n fevereiro \n");
+break;
+
+case 3:
+printf ("\n março \n");
+break;
+
+case 4:
+printf ("\n abril \n");
+break;
+
+case 5:
+printf ("\n maio \n");
+break;
+
+case 6:
+printf ("\n junho \n");
+break;
+
+case 7:
+printf ("\n julho \n");
+break;
+
+case 8:
+printf ("\n agosto \n");
+break;
+
+case 9:
+printf ("\n setembro \n");
+break;
+
+case 10:
+printf ("\n outubro \n");
+break;
+
+case 11:
+printf ("\n novembro \n");
+break;
+
+case 12:
+printf ("\n dezembro \n");
+break;
+
+default:
+ printf ("Opção invalida");  
+ } 
 }
 
-//19. Em um campeonato nacional de arco-e-flecha, tem-se equipes de três jogadores para cada estado. Sabendo-se que os arqueiros de uma equipe não obtiveram o mesmo número de pontos, criar um programa que informe se uma equipe foi classificada, de acordo com a seguinte especificação:
+//19. Em um campeonato nacional de arco-e-flecha, tem-se equipes de três jogadores para cada estado. Sabendo-se que os arqueiros de uma
+//equipe não obtiveram o mesmo número de pontos, criar um programa que informe se uma equipe foi classificada, de acordo com a seguinte especificação:
 //• Ler os pontos obtidos por cada jogador da equipe;
 //• Mostrar esses valores em ordem decrescente;
 //• Se a soma dos pontos for maior do que 100, imprimir a média aritmética entre eles, caso contrário, imprimir a mensagem "Equipe desclassificada".
 void questao19() {
-	
+float n1, n2, n3, media, soma;
+char equipe[50];
+
+printf ("Informe o nome da equipe: \n");
+scanf ("%50[^\n]",&equipe);
+printf ("Informe as tres notas:\n");
+scanf ("%f %f %f", &n1, &n2, &n3);
+soma = (n1+n2+n3);
+media = (n1+n2+n3)/3;
+if (n1>=n2 && n2>= n3)
+ printf ("a equipe %s obteve as seguintes notas: %.2f %.2f %.2f \n", equipe, n3, n2, n1);
+else if (n2 >= n1 && n1 >= n3)
+ printf ("a equipe %s obteve as seguintes notas: %.2f %.2f %.2f \n", equipe, n3, n1, n2);
+else if (n3 >= n1 && n1 >= n2)
+ printf ("a equipe %s obteve as seguintes notas: %.2f %.2f %.2f \n", equipe, n2, n1, n3);
+else if (n3 >= n2 && n2 >= n1)
+ printf ("a equipe %s obteve as seguintes notas: %.2f %.2f %.2f \n", equipe, n1, n2, n3);
+else if (n2 >= n3 && n3 >=n1)
+ printf ("a equipe %s obteve as seguintes notas: %.2f %.2f %.2f \n", equipe, n1, n3, n2);
+else
+ printf ("a equipe %s obteve as seguintes notas: %.2f %.2f %.2f \n", equipe, n2, n3, n1);
+
+if (soma > 100)
+  printf ("Esta classificada com a media das notas de: %.2f \n", media);
+else  
+ printf ("Equipe Desclassificada \n");
 }
 
 //20. O banco XXX concederá um crédito especial com juros de 2% aos seus clientes de acordo com o saldomédio no último ano. Faça um programa que leia o saldo médio de um cliente e calcule o valor do crédito de acordo com a tabela a seguir. O programa deve imprimir uma mensagem informando o saldo médio e o valor de crédito.
@@ -402,7 +485,13 @@ int main() {
 			break;		
 		case 17:
 			questao17();
-			break;						
+			break;	
+		case 18:
+			questao18();
+			break;
+		case 19:
+		 questao19();
+		break;								
 		default:
 			printf("Opção inválida!");
 	}
