@@ -357,7 +357,7 @@ float n1, n2, n3, media, soma;
 char equipe[50];
 
 printf ("Informe o nome da equipe: \n");
-scanf ("%50[^\n]",&equipe);
+scanf (" %50[^\n]", equipe);
 printf ("Informe as tres notas:\n");
 scanf ("%f %f %f", &n1, &n2, &n3);
 soma = (n1+n2+n3);
@@ -381,27 +381,68 @@ else
  printf ("Equipe Desclassificada \n");
 }
 
-//20. O banco XXX concederá um crédito especial com juros de 2% aos seus clientes de acordo com o saldomédio no último ano. Faça um programa que leia o saldo médio de um cliente e calcule o valor do crédito de acordo com a tabela a seguir. O programa deve imprimir uma mensagem informando o saldo médio e o valor de crédito.
+//20. O banco XXX concederá um crédito especial com juros de 2% aos seus clientes de acordo com o saldomédio no último ano. 
+//Faça um programa que leia o saldo médio de um cliente e calcule o valor do crédito de acordo com a tabela a seguir.
+// O programa deve imprimir uma mensagem informando o saldo médio e o valor de crédito.
 //Saldo Médio Percentual
 //de 0 a 500 nenhum crédito
 //de 501 a 1000 30% do valor do saldo médio
 //de 1001 a 3000 40% do valor do saldo médio
 //acima de 3001 50% do valor do saldo médio
+
 void questao20() {
-	
+ float saldomedio, credito;
+ printf ("Informe seu saldo medio \n");
+ scanf ("%f", &saldomedio);
+ if (saldomedio >= 0 && saldomedio <= 500)
+  credito = 0;
+else if (saldomedio > 500 && saldomedio <= 1000)
+ credito = saldomedio * 0.3;
+else if (saldomedio > 1000 && saldomedio <= 3000)
+ credito = saldomedio * 0.4;
+else
+ credito = saldomedio * 0.5;
+ printf ("O credito para o seu saldo medio de: %.2f será de: %.2f \n", saldomedio, credito); 
 }
 
-//21. A biblioteca de uma Universidade deseja fazer um programa que leia o nome do livro que será emprestado, o tipo de usuário (professor ou aluno) e possa imprimir um recibo conforme mostrado a seguir. Considerar que o professor tem dez dias para devolver o livro e o aluno só três dias.
+//21. A biblioteca de uma Universidade deseja fazer um programa que leia o nome do livro que será emprestado,
+// o tipo de usuário (professor ou aluno) e possa imprimir um recibo conforme mostrado a seguir. 
+//Considerar que o professor tem dez dias para devolver o livro e o aluno só três dias.
 //• Nome do livro:
 //• Tipo de usuário:
 //• Total de dias:
 void questao21() {
-	
+	char nomelivro[50];
+	int x;
+	printf ("Informe o nome do livro: \n");
+	printf ("Digite 666 - Professor ou 777 - Aluno \n ");
+	scanf (" %50[^\n]", nomelivro);
+	scanf ("%d", &x);
+	if (x = 666)
+	 printf ("Nome do livro: %s Professor então terá 10 dias para responder. \n", nomelivro);
+	else if (x = 777)
+	 printf ("Nome do livro: %s Aluno então terá 3 dias para responder. \n", nomelivro);
+	else 
+	 printf ("Valor invalido. \n");
 }
 
-//22. Construa um programa que leia o percurso em quilómetros, o tipo do carro e informe o consumo estimado de combustível, sabendo-se que umcarro tipo C faz 12 kmcom umlitro de gasolina, um tipo B faz 9 kme o tipo C, 8 kmpor litro.
+//22. Construa um programa que leia o percurso em quilómetros, o tipo do carro e informe o consumo estimado de combustível, 
+//sabendo-se que umcarro tipo A faz 12 km com um litro de gasolina, um tipo B faz 9 km e o tipo C, 8 km por litro.
 void questao22() {
-	
+ char tipo[1];
+ float km, lts;
+
+printf ("Informe seu tipo de carro: A, B ou C: e os km's percorridos: \n");
+scanf (" %c", &tipo);
+scanf ("%f", &km);
+if (tipo == 'A')
+ lts = km/12.0;
+ else if (tipo == 'B')
+  lts = km/9.0;
+  else 
+   lts = km/8.0;
+printf ("O consumo será: %.2f \n", lts);
+
 }
 
 //23. Crie um programa que informe a quantidade total de calorias de uma refeição a partir da escolha do usuário que deverá informar o prato, a sobremesa, e bebida conforme a tabela a seguir.
@@ -491,7 +532,13 @@ int main() {
 			break;
 		case 19:
 		 questao19();
-		break;								
+		break;	
+		case 20:
+		 questao20();
+		break;	
+		case 21:
+		 questao21();
+		break;									
 		default:
 			printf("Opção inválida!");
 	}
