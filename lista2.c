@@ -429,11 +429,12 @@ void questao21() {
 //22. Construa um programa que leia o percurso em quilómetros, o tipo do carro e informe o consumo estimado de combustível, 
 //sabendo-se que umcarro tipo A faz 12 km com um litro de gasolina, um tipo B faz 9 km e o tipo C, 8 km por litro.
 void questao22() {
- char tipo[1];
+ char tipo;
  float km, lts;
 
-printf ("Informe seu tipo de carro: A, B ou C: e os km's percorridos: \n");
+printf ("Informe seu tipo de carro: A, B ou C: \n");
 scanf (" %c", &tipo);
+printf ("Informe a quantidade de KM's percorridos: \n");
 scanf ("%f", &km);
 if (tipo == 'A')
  lts = km/12.0;
@@ -442,20 +443,77 @@ if (tipo == 'A')
   else 
    lts = km/8.0;
 printf ("O consumo será: %.2f \n", lts);
-
 }
 
-//23. Crie um programa que informe a quantidade total de calorias de uma refeição a partir da escolha do usuário que deverá informar o prato, a sobremesa, e bebida conforme a tabela a seguir.
+//23. Crie um programa que informe a quantidade total de calorias de uma refeição a partir da escolha do usuário que deverá informar o prato, 
+//a sobremesa, e bebida conforme a tabela a seguir.
 //Prato Sobremesa Bebida
 //Vegetariano 180cal Abacaxi 75cal Chá 20cal
 //Peixe 230cal Sorvete diet 110cal Suco de laranja 70cal
 //Frango 250cal Mousse diet 170cal Suco de melão 100cal
 //Carne 350cal Mousse chocolate 200cal Refrigerante diet 65cal
 void questao23() {
+ int cal = 0, p = 0, op2 = 0, op3 = 0;
+
+do {
+ printf ("Informe o prato principal: 1- Vegetariano / 2- Peixe / 3- Frango / 4- Carne \n");
+ scanf ("%d", &p);
+  if (p == 1)
+  cal += 180;
+  else if  (p == 2)
+   cal += 230;
+  else if (p == 3)
+   cal += 250;
+  else if (p == 4) 
+   cal += 350;
+  else {
+    printf ("Opção invalida!!\n");
+	p = 0;
+   }
+}while (p == 0);
+
+ do{
+ printf ("Agora informe a Sobremesa: 1- Abacaxi / 2- Sorv. Diet / 3- Mousse de Chocolate / 4- Suco de laranja \n");
+ scanf ("%d", &op2);
+
+	if (op2 == 1)
+     cal += 75;	
+   	else if (op2 == 2)
+     cal += 110;
+	else if (op2 == 3)
+	 cal += 170;
+	else if (op2 == 4)
+	 cal += 200;
+	else {
+	 printf ("Opção Invalida!!\n");
+	 op2 = 0;	
+	}
+  }while (op2 == 0);
+ 
+ do {
+  printf ("Para bebida: 1- Chá / 2- Suco de laranja / 3- Suco de melão / 4- Refrigerante Diet \n");
+  scanf  ("%d", &op3);
+   if (op3 == 1)
+    cal += 20;
+   else if (op3 == 2)
+    cal += 70;
+   else if (op3 == 3)
+    cal += 100;
+   else if (op3 == 4)
+    cal += 65;
+   else {
+	printf ("Opção Invalida !!\n");
+	op3 = 0;
+   }
+ }while (op3 == 0);
+
+printf ("O total em calorias consumido foi: %d \n", cal);
 
 }
 
-//24. A polícia rodoviária resolveu fazer cumprir a lei e vistoriar veículos para cobrar dosmotoristas o DUT. Sabendo-se que o mês em que o emplacamento do carro deve ser renovado é determinado pelo último número da placa do mesmo, faça um programa que, a partir da leitura da placa do carro, informe omês em que o emplacamento deve ser renovado.
+//24. A polícia rodoviária resolveu fazer cumprir a lei e vistoriar veículos para cobrar dosmotoristas o DUT. 
+//Sabendo-se que o mês em que o emplacamento do carro deve ser renovado é determinado pelo último número da placa do mesmo, 
+//faça um programa que, a partir da leitura da placa do carro, informe omês em que o emplacamento deve ser renovado.
 void questao24() {
 	
 }
@@ -538,7 +596,13 @@ int main() {
 		break;	
 		case 21:
 		 questao21();
-		break;									
+		break;	
+		case 22:
+		 questao22();
+		break;	
+		case 23:
+		 questao23();
+		break;								
 		default:
 			printf("Opção inválida!");
 	}
