@@ -515,16 +515,81 @@ printf ("O total em calorias consumido foi: %d \n", cal);
 //Sabendo-se que o mês em que o emplacamento do carro deve ser renovado é determinado pelo último número da placa do mesmo, 
 //faça um programa que, a partir da leitura da placa do carro, informe omês em que o emplacamento deve ser renovado.
 void questao24() {
-	
+
+	char placa[10];
+	printf ("Informe a placa do carro: \n");
+    scanf (" %10[^\n]", placa);
+
+	switch (placa[6]){
+
+case '1':
+printf ("\n O DOC deve ser renovado em janeiro \n");
+break;	
+
+case '2':
+printf ("\n O DOC deve ser renovado em fevereiro \n");
+break;
+
+case '3':
+printf ("\n O DOC deve ser renovado em março \n");
+break;
+
+case '4':
+printf ("\n O DOC deve ser renovado em abril \n");
+break;
+
+case '5':
+printf ("\n O DOC deve ser renovado em maio \n");
+break;
+
+case '6':
+printf ("\n O DOC deve ser renovado em junho \n");
+break;
+
+case '7':
+printf ("\n O DOC deve ser renovado em julho \n");
+break;
+
+case '8':
+printf ("\n O DOC deve ser renovado em agosto \n");
+break;
+
+case '9':
+printf ("\n O DOC deve ser renovado em setembro \n");
+break;
+
+case '0':
+printf ("\n O DOC deve ser renovado em outubro \n");
+break;
+
+default:
+ printf ("Opção invalida");  
+ }
 }
 
-//25. A prefeitura contratou uma firma especializada para manter os níveis de poluição considerados ideais para umpaís do 1º mundo. As indústrias, maiores responsáveis pela poluição, foram classificadas em três grupos. Sabendo-se que a escala utilizada varia de 0,05 e que o índice de poluição aceitável é até 0,25, fazer um programa que possa imprimir intimações de acordo com o índice e a tabela a seguir:
+//25. A prefeitura contratou uma firma especializada para manter os níveis de poluição considerados ideais para umpaís do 1º mundo. 
+//As indústrias, maiores responsáveis pela poluição, foram classificadas em três grupos.
+// Sabendo-se que a escala utilizada varia de 0,05 e que o índice de poluição aceitável é até 0,25, 
+//fazer um programa que possa imprimir intimações de acordo com o índice e a tabela a seguir:
 //Índice Indústrias que receberão intimação
 //0,3 1º gurpo
 //0,4 1º e 2º grupos
 //0,5 1º, 2º e 3º grupos
 void questao25() {
 	
+	float i = 0;
+
+	printf ("Informe o índice de poluição de sua industria: \n");
+    scanf ("%f", &i );
+
+    if (i>0 && i<=0.25)
+	 printf ("Índice de poluição aceitavel!! \n");
+	else if (i > 0 && i <= 0.3)
+	 printf ("Pertencente ao 1° grupo!! \n");
+	else if (i >= 0.4 && i < 0.5)
+	 printf ("Pertencente ao 1° e 2° grupos !! \n");
+	else 
+	 printf ("Pertencente ao 1°, 2° e 3° grupos!! \n");
 }
 
 int main() {
@@ -590,19 +655,26 @@ int main() {
 			break;
 		case 19:
 		 questao19();
-		break;	
+			break;	
 		case 20:
 		 questao20();
-		break;	
+			break;	
 		case 21:
 		 questao21();
-		break;	
+			break;	
 		case 22:
 		 questao22();
-		break;	
+			break;	
 		case 23:
 		 questao23();
-		break;								
+			break;		
+		case 24:
+		 questao24();
+			break;
+        case 25:
+		 questao25();
+			break;
+
 		default:
 			printf("Opção inválida!");
 	}
