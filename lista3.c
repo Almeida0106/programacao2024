@@ -58,14 +58,25 @@ for (int i = 1; i <= 500; i++) {
 //4. Faça umprograma que permita entrar com o nome, a idade e o sexo de 20
 //pessoas.O programa deve imprimir o nome da pessoa se ela for do sexo masculino
 //e tiver mais de 21 anos.
-void q04 (){
 
-    
-}
 
 //5. Sabendo-se que a unidade lógica e aritmética calcula o produto através de somas
 //sucessivas, crie um programa que calcule o produto de dois números inteiros
 //lidos. Suponha que os números lidos sejam positivos.
+
+void q05(){
+
+int soma =0, i, n1 = 0, n2 = 0; 
+
+printf ("informe as dois valores inteiros: \n");
+scanf("%d %d", &n1, &n2);
+
+for (int i = 1; i <n2; i++){
+ soma =+ n1;
+  printf ("%d", soma);
+  printf ("\n");
+}
+}
 
 //6. Crie um programa que imprima os 20 primeiros termos da série de Fibonacci.
 //Observação: os dois primeiros termos desta série são 1 e 1 e os demais são gerados
@@ -306,6 +317,6 @@ void q04 (){
 //idade.
 
 int main() {
-    q03 ();
+    q05 ();
 	return EXIT_SUCCESS;
 }
